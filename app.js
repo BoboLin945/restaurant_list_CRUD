@@ -1,7 +1,12 @@
 const express = require('express')
 const mongoose = require('mongoose')
+const exphbs = require('express-handlebars')
 
 const app = express()
+
+// template engine
+app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
+app.set('view engine', 'handlebars')
 
 // mongoose connect to mongoDB
 mongoose.connect('mongodb://localhost/restaurant-list', { useNewUrlParser: true, useUnifiedTopology: true })
@@ -19,7 +24,7 @@ db.once('open', () => {
 
 // route setting
 app.get('/', (req, res) => {
-  res.send(`This is restaurant-list-CRUD project!`)
+  res.render('index')
 })
 
 
