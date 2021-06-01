@@ -9,6 +9,8 @@ const app = express()
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
 app.set('view engine', 'handlebars')
 app.use(express.urlencoded({ extended: true }))
+app.use(express.static('public'))
+
 
 // mongoose connect to mongoDB
 mongoose.connect('mongodb://localhost/restaurant-list', { useNewUrlParser: true, useUnifiedTopology: true })
@@ -35,8 +37,9 @@ app.get('/restaurants/new', (req, res) => {
   return res.render('new')
 })
 
+// Create
 app.post('/restaurants', (req, res) => {
-  console.log(req.body)
+  // console.log(req.body)
   const addItem = req.body
   return Restaurant.create({
     name: addItem.name,
@@ -50,12 +53,20 @@ app.post('/restaurants', (req, res) => {
   })
     .then(() => { res.redirect('/') })
     .catch(error => console.log(error))
-
 })
+
+// Read
+app.get('/restaurants/:id', (req, res) => {
+  const id = req.params.id
+  return Restaurant.findById(id)
+    .lean()
+    .then((restaurant) => res.render('detail', { restaurant }))
+    .catch(error => console.log(error))
+})
+
 
 // setting port
 app.listen(3000, () => {
   console.log(`App is running on http://localhost:3000`)
 })
 
-app.use(express.static('public'))
