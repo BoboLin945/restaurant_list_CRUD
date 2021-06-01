@@ -11,7 +11,7 @@ db.on('error', () => {
 })
 db.once('open', () => {
   restaurants.results.forEach(item => {
-    console.log(item.name)
+    // console.log(item.name)
     Restaurant.create({
       name: item.name,
       category: item.category,
