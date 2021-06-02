@@ -88,14 +88,14 @@ app.post('/restaurants/:id/edit', (req, res) => {
   return Restaurant.findById(id)
     .then(restaurant => {
       restaurant.name = editItem.name,
-      restaurant.category = editItem.category,
-      restaurant.image = editItem.image,
-      restaurant.location = editItem.location,
-      restaurant.phone = editItem.phone,
-      restaurant.google_map = editItem.google_map,
-      restaurant.rating = editItem.rating,
-      restaurant.description = editItem.description,
-      restaurant.save()
+        restaurant.category = editItem.category,
+        restaurant.image = editItem.image,
+        restaurant.location = editItem.location,
+        restaurant.phone = editItem.phone,
+        restaurant.google_map = editItem.google_map,
+        restaurant.rating = editItem.rating,
+        restaurant.description = editItem.description,
+        restaurant.save()
     })
     .then(() => res.redirect(`/restaurants/${id}`))
     .catch(error => console.log(error))
