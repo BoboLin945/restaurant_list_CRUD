@@ -37,6 +37,16 @@ app.get('/restaurants/new', (req, res) => {
   return res.render('new')
 })
 
+// Search
+app.get('/search', (req, res) => {
+  const keyword = req.query.keyword
+  const regex = new RegExp(keyword, 'i') // i for case insensitive
+  Restaurant.find({ $or: [{ name: { $regex: regex } }, { category: { $regex: regex } }] })
+    .lean()
+    .then(restaurants => res.render('index', { restaurants }))
+    .catch(error => console.error(error))
+})
+
 // Create
 app.post('/restaurants', (req, res) => {
   // console.log(req.body)
@@ -81,14 +91,14 @@ app.post('/restaurants/:id/edit', (req, res) => {
       console.log(restaurant.name)
       console.log(editItem.name)
       restaurant.name = editItem.name,
-      restaurant.category = editItem.category,
-      restaurant.image = editItem.image,
-      restaurant.location = editItem.location,
-      restaurant.phone = editItem.phone,
-      restaurant.google_map = editItem.google_map,
-      restaurant.rating = editItem.rating,
-      restaurant.description = editItem.description,
-      restaurant.save()
+        restaurant.category = editItem.category,
+        restaurant.image = editItem.image,
+        restaurant.location = editItem.location,
+        restaurant.phone = editItem.phone,
+        restaurant.google_map = editItem.google_map,
+        restaurant.rating = editItem.rating,
+        restaurant.description = editItem.description,
+        restaurant.save()
     })
     .then(() => res.redirect(`/restaurants/${id}`))
     .catch(error => console.log(error))

@@ -3,8 +3,9 @@
   <div class="d-flex justify-content-end">
     <a class="btn btn-sm btn-outline-success mr-2" href="./{{ restaurant._id }}/edit" role="button"><i
         class="fas fa-edit"></i>Edit</a>
-    <a class="btn btn-sm btn-outline-danger" href="./{{ restaurant._id }}/delete" role="button"><i
-        class="fas fa-trash-alt"></i>Delete</a>
+    <form action="/restaurants/{{ restaurant._id }}/delete" method="POST">
+      <button class="btn btn-sm btn-outline-danger"><i class="fas fa-trash-alt"></i>Delete</button>
+    </form>
   </div>
   <div class="row">
     <div class="col-12 col-md-10 mx-auto">
