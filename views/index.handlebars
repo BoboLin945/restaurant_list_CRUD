@@ -42,10 +42,10 @@
               <div class="mt-2 d-flex justify-content-end">
                 <a class="btn btn-sm btn-outline-success mr-2" href="./restaurants/{{ this._id }}/edit" role="button"><i
                     class="fas fa-edit"></i>Edit</a>
-                <a class="btn btn-sm btn-outline-danger" href="./restaurants/{{ this._id }}/delete" role="button"><i
-                    class="fas fa-trash-alt"></i>Delete</a>
+                <form action="/restaurants/{{ this._id }}/delete" method="POST">
+                  <button class="btn btn-sm btn-outline-danger"><i class="fas fa-trash-alt"></i>Delete</button>
+                </form>
               </div>
-
             </div>
           </div>
         </a>
