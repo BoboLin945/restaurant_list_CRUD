@@ -1,0 +1,51 @@
+<h1 class="mb-1 restaurant-show-title">{{restaurant.name}}</h1>
+<div class="container mx-auto">
+  <form action="/restaurants/{{restaurant._id}}/edit" method="POST">
+    <div class="form-row d-flex justify-content-center">
+      <div class="form-group col-md-8">
+        <label for="formGroupExampleInput"><i class="fas fa-utensils mr-2"></i>餐廳名稱</label>
+        <input type="text" class="form-control" id="name" name="name" placeholder=" 請輸入名稱 ..."
+          value="{{restaurant.name}}">
+      </div>
+      <div class="form-group col-md-8">
+        <label for="formGroupExampleInput"><i class="fas fa-tag mr-2"></i>餐廳分類</label>
+        <input type="text" class="form-control" id="category" name="category" placeholder=" 請輸入分類 ..."
+          value="{{restaurant.category}}">
+      </div>
+      <div class="form-group col-md-8">
+        <label for="formGroupExampleInput"><i class="fas fa-image mr-2"></i>照片</label>
+        <input type="text" class="form-control" id="image" name="image" placeholder=" 請輸入圖片網址 ..."
+          value="{{restaurant.image}}">
+      </div>
+      <div class="form-group col-md-8">
+        <label for="formGroupExampleInput"><i class="fas fa-thumbtack mr-2"></i>地址</label>
+        <input type="text" class="form-control" id="location" name="location" placeholder=" 請輸入地址 ..."
+          value="{{restaurant.location}}">
+      </div>
+      <div class="form-group col-md-8">
+        <label for="formGroupExampleInput"><i class="fas fa-phone-volume mr-2"></i>電話</label>
+        <input type="text" class="form-control" id="phone" name="phone" placeholder=" 請輸入電話 ..."
+          value="{{restaurant.phone}}">
+      </div>
+      <div class="form-group col-md-8">
+        <label for="formGroupExampleInput"><i class="fas fa-map-marked-alt mr-2"></i>Google Map 網址</label>
+        <input type="text" class="form-control" id="google_map" name="google_map" placeholder=" 請輸入 Google Map 網址 ..."
+          value="{{restaurant.google_map}}">
+      </div>
+      <div class="form-group col-md-8">
+        <label for="formGroupExampleInput"><i class="fas fa-star mr-2"></i>評分</label>
+        <input type="text" class="form-control" id="rating" name="rating" placeholder=" 請輸入評分 ..."
+          value="{{restaurant.rating}}">
+      </div>
+      <div class="form-group col-md-8">
+        <label for="exampleFormControlTextarea1"><i class="fas fa-info mr-2"></i>餐廳簡介</label>
+        <textarea class="form-control" id="description" name="description" rows="3">{{restaurant.description}}</textarea>
+      </div>
+    </div>
+    <div class="d-flex justify-content-center m-3">
+      <button type="submit" class="btn btn-outline-info mr-3">儲存</button>
+      <a class="btn btn-outline-warning" href="/" role="button">取消</a>
+    </div>
+
+  </form>
+</div>

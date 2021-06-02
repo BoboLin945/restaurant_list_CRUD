@@ -1,5 +1,11 @@
 <h1 class="mb-1 restaurant-show-title">{{restaurant.name}}</h1>
 <div class="container">
+  <div class="d-flex justify-content-end">
+    <a class="btn btn-sm btn-outline-success mr-2" href="./{{ restaurant._id }}/edit" role="button"><i
+        class="fas fa-edit"></i>Edit</a>
+    <a class="btn btn-sm btn-outline-danger" href="./{{ restaurant._id }}/delete" role="button"><i
+        class="fas fa-trash-alt"></i>Delete</a>
+  </div>
   <div class="row">
     <div class="col-12 col-md-10 mx-auto">
 
