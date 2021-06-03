@@ -8,6 +8,8 @@
   * 名稱
   * 分類
   * 評分
+
+![image](restaurant-list-CRUD-index.png)
   
 2. 使用者可以點擊餐廳圖片瀏覽餐廳詳細資訊
   * 照片
@@ -20,6 +22,8 @@
 3. 搜尋功能：輸入餐廳名稱、餐廳分類可搜尋餐廳
 
 4. 使用者可以從首頁點擊「新增」，新增一家餐廳
+
+![image](restaurant-list-CRUD-new.png)
 
 5. 使用者點擊「Edit」可以修改一家餐廳的資訊
 
